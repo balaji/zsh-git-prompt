@@ -1,9 +1,9 @@
 This is a fork of https://github.com/olivierverdier/zsh-git-prompt
 
 Changes include:
-1. gnome-terminal friendly symbols.
-2. tracking deleted files & changed files separately.
-3. git status shows up on executing any command instead of 'git' only commands.
+* gnome-terminal friendly symbols.
+* tracking deleted files & changed files separately.
+* git status shows up on executing any command instead of 'git' only commands.
 
 Informative git prompt for zsh
 ==============================
@@ -18,7 +18,7 @@ Examples
 
 The prompt may look like the following:
 
-* ``(master <<3 >> 1)``: on branch ``master``, ahead of remote by 3 commits, 1 file changed but not staged
+* ``(master << 3 >> 1)``: on branch ``master``, ahead of remote by 3 commits, 1 file changed but not staged
 * ``(status +2)``: on branch ``status``, 2 files staged
 * ``(master| ~7 - 2...)``: on branch ``master``, 7 files changed, 2 files deleted & some files untracked
 * ``(master| !2 ~3)``: on branch ``master``, 2 conflicts, 3 files changed
@@ -39,17 +39,17 @@ Symbols
 The symbols are as follows:
 
 * Status Symbols
-	:(green color branch): repository clean
-	:+n (blue color): there are ``n`` staged files
-	:!n (white color): there are ``n`` unmerged files
-	:~n (yellow color): there are ``n`` changed but *unstaged* files
-        :-n (red color): there are ``n`` deleted files
+	:``(green color branch)``: repository clean
+	:+n ``(blue color)``: there are ``n`` staged files
+	:!n ``(white color)``: there are ``n`` unmerged files
+	:~n ``(yellow color)``: there are ``n`` changed but *unstaged* files
+        :-n ``(red color)``: there are ``n`` deleted files
 	:...: there are some untracked files
 
 * Branch Symbols
+	:>> m << n: branches diverged, other by ``m`` commits, yours by ``n`` commits
 	:<< n: ahead of remote by ``n`` commits
 	:>> n: behind remote by ``n`` commits
-	:>> m << n: branches diverged, other by ``m`` commits, yours by ``n`` commits
 	:\:: when the branch name starts with a colon ``:``, it means it's actually a hash, not a branch (although it should be pretty clear, unless you name your branches like hashes :-)
 
 Install
