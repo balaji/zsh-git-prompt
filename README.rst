@@ -1,3 +1,10 @@
+This is a fork of https://github.com/olivierverdier/zsh-git-prompt
+
+Changes include:
+1. gnome-terminal friendly symbols.
+2. tracking deleted files & changed files separately.
+3. git status shows up on executing any command instead of 'git' only commands.
+
 Informative git prompt for zsh
 ==============================
 
@@ -9,18 +16,18 @@ In particular the branch name, difference with remote branch, number of files st
 Examples
 --------
 
-The prompt may look like the following: 
+The prompt may look like the following:
 
-* ``(master↑3‣1)``: on branch ``master``, ahead of remote by 3 commits, 1 file changed but not staged
-* ``(status●2)``: on branch ``status``, 2 files staged
-* ``(master✚7…)``: on branch ``master``, 7 files changed, some files untracked
-* ``(master✖2✚3)``: on branch ``master``, 2 conflicts, 3 files changed
-* ``(experimental↓2↑3)``: on branch ``experimental``; your branch has diverged by 3 commits, remote by 2 commits
+* ``(master <<3 >> 1)``: on branch ``master``, ahead of remote by 3 commits, 1 file changed but not staged
+* ``(status +2)``: on branch ``status``, 2 files staged
+* ``(master| ~7 - 2...)``: on branch ``master``, 7 files changed, 2 files deleted & some files untracked
+* ``(master| !2 ~3)``: on branch ``master``, 2 conflicts, 3 files changed
+* ``(experimental >> 2 << 3)``: on branch ``experimental``; your branch has diverged by 3 commits, remote by 2 commits
 * ``(:70c2952)``: not on any branch; parent commit has sha1 ``70c2952``
 
 Here is how it could look like when you are ahead by 4 commits, behind by 5 commits, and have 1 staged files, 1 changed but unstaged file, and some untracked files, on branch ``dev``:
 
-.. image:: https://github.com/olivierverdier/zsh-git-prompt/raw/master/screenshot.png
+.. image:: https://github.com/openbala/zsh-git-prompt/raw/master/screenshot.png
 	:alt: Example
 
 
@@ -32,16 +39,17 @@ Symbols
 The symbols are as follows:
 
 * Status Symbols
-	:✔: repository clean
-	:●n: there are ``n`` staged files
-	:✖n: there are ``n`` unmerged files
-	:✚n: there are ``n`` changed but *unstaged* files
-	:…: there are some untracked files
+	:(green color branch): repository clean
+	:+n (blue color): there are ``n`` staged files
+	:!n (white color): there are ``n`` unmerged files
+	:~n (yellow color): there are ``n`` changed but *unstaged* files
+        :-n (red color): there are ``n`` deleted files
+	:...: there are some untracked files
 
 * Branch Symbols
-	:↑n: ahead of remote by ``n`` commits
-	:↓n: behind remote by ``n`` commits
-	:↓m↑n: branches diverged, other by ``m`` commits, yours by ``n`` commits
+	:<< n: ahead of remote by ``n`` commits
+	:>> n: behind remote by ``n`` commits
+	:>> m << n: branches diverged, other by ``m`` commits, yours by ``n`` commits
 	:\:: when the branch name starts with a colon ``:``, it means it's actually a hash, not a branch (although it should be pretty clear, unless you name your branches like hashes :-)
 
 Install
